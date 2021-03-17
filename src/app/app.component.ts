@@ -7,14 +7,9 @@ import { CategoriesService } from './services/categories.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'gushakir-mexedin';
-  public categories: Category[];
 
-  constructor(private categoryService: CategoriesService) { }
-
-  ngOnInit(): void {
-    this.categories = this.categoryService.getAllCategories();
-  }
+  constructor() { }
 
 }
