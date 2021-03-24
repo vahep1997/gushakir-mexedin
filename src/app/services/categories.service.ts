@@ -71,7 +71,7 @@ export class CategoriesService {
       ]
     },
     {
-      name: 'Hip Hop',
+      name: 'Rap',
       id: shortId(),
       songs: [
         {

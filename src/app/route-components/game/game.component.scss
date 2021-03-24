@@ -28,19 +28,15 @@ $base-color: #4A2F78;
       position: relative;
       width: 150px;
       cursor: pointer;
-      // .point {
-      //   color: white;
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   font-size: 18px;
-      // }
     }
 
     .line {
       border-bottom: 2px solid #E8B8FF;
       height: 20%;
     }
+  }
+  .activeSong {
+    filter: invert(1);
   }
 }
 

@@ -6,7 +6,11 @@
     </div>
     <div class="w-100 h-100 pb-3 position-relative">
       <div class="position-absolute h-100 w-100 d-flex justify-content-around">
-        <div *ngFor="let song of category.songs" class="song" (click)="playSong(category.id, song.id)">
+        <div
+        *ngFor="let song of category.songs"
+        class="song"
+        [ngClass]="{'animate__shakeY animate__animated animate__infinite': song.isPlaying, 'activeSong': song.isPlayed}"
+        (click)="handleSinging(category.id, song.id)">
           <!-- <div class="point">{{song.point}}</div> -->
           <img src="assets/note.png" height="100%" width="auto" alt="">
         </div>

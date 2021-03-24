@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from 'src/app/models/common';
+import { Category, Song } from 'src/app/models/common';
 import { CategoriesService } from 'src/app/services/categories.service';
 import {Howl, Howler} from 'howler';
 
@@ -15,6 +15,8 @@ export class GameComponent implements OnInit {
   public sound = null;
   public isSongPlaying: boolean;
   public selcetedCategory: Category;
+  public selectedSong: Song;
+
   constructor(
     private categoriesService: CategoriesService,
     private router: Router
@@ -33,29 +35,29 @@ export class GameComponent implements OnInit {
   }
 
   playSong(categoryId: string, songId: string): void {
-    // this.selcetedCategory = this.categories.find(ctg => ctg.id === categoryId);
-    // this.categories.map(ctg => ctg.isPlaying = false);
-    // this.selcetedCategory.isPlaying = true;
-    // const selectedSong = this.selcetedCategory.songs.find(song => song.id === songId);
-
-    // this.stopPlaying();
-
-    // if (!selectedSong.isPlaying) {
-    //   this.sound = new Howl({
-    //     src: [selectedSong.src]
-    //   });
-    //   this.sound.play();
-    //   selectedSong.isPlaying = true;
-    // }
-
+    this.selcetedCategory = this.categories.find(ctg => ctg.id === categoryId);
+    this.selectedSong = this.selcetedCategory.songs.find(song => song.id === songId);
+    this.sound = new Howl({
+      src: [this.selectedSong.src]
+    });
+    this.sound.play();
+    this.isSongPlaying = true;
+    this.selectedSong.isPlaying = true;
+    this.selectedSong.isPlayed = true;
   }
 
   stopPlaying(): void {
-    // if (this.sound) {
-    //   this.sound.stop();
-    //   this.categories.forEach(category => {
-    //     category.songs.map(song => song.isPlaying = false);
-    //   });
-    // }
+    this.sound.stop();
+    this.isSongPlaying = false;
+    this.selectedSong.isPlaying = false;
+
+  }
+
+  handleSinging(categoryId, songId): void {
+    if (this.isSongPlaying) {
+      this.stopPlaying();
+    } else {
+      this.playSong(categoryId, songId);
+    }
   }
 }

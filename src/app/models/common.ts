@@ -3,7 +3,6 @@ export interface Category {
   id: string;
   songs: Song[];
   selected?: boolean;
-  isPlaying?: boolean;
 }
 
 
@@ -12,4 +11,5 @@ export interface Song {
   src: string;
   point: number;
   isPlaying?: boolean;
+  isPlayed?: boolean;
 }
