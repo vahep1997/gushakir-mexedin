@@ -20,8 +20,8 @@ export class CategoriesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.categories = this.categoryService.getAllCategories();
-    this.categories.map(ctg => ctg.selected = false);
+    // this.categories = this.categoryService.getAllCategories();
+    // this.categories.map(ctg => ctg.selected = false);
   }
 
   selectCategories(categoryId): void {
