@@ -357,7 +357,7 @@ export class CategoriesService {
       ]
     },
     {
-      name: 'Դանդաղ արտասահմանյան',
+      name: 'Դ․ Ա․',
       id: shortId(),
       songs: [
         {

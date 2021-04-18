@@ -51,6 +51,7 @@ export class GameComponent implements OnInit {
   }
 
   newGame(): void {
+    this.stopPlaying();
     if (this.currentRound === 'round3') {
       this.router.navigate(['finalRound']);
       return;
@@ -80,9 +81,13 @@ export class GameComponent implements OnInit {
   }
 
   stopPlaying(): void {
-    this.sound.stop();
+    if (this.sound) {
+      this.sound.stop();
+    }
     this.isSongPlaying = false;
-    this.selectedSong.isPlaying = false;
+    if (this.selectedSong) {
+      this.selectedSong.isPlaying = false;
+    }
 
   }
 
